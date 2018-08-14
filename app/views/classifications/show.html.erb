@@ -51,6 +51,50 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_safety_event" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for comment -->
+      <div class="form-group">
+        <label for="comment" class="control-label">
+          Comment
+        </label>
+
+        <textarea id="comment" name="comment" placeholder="Comment" class="form-control" rows="3"></textarea>
+      </div>
+
+      <!-- Label and input for classification_id -->
+      <input type="hidden" name="classification_id" value="<%= @classification.id %>">
+
+      <!-- Label and input for user_id -->
+      <input type="hidden" name="user_id" value="<%= current_user.id %>">
+
+      <!-- Label and input for root_cause -->
+      <div class="form-group">
+        <label for="root_cause" class="control-label">
+          Root cause
+        </label>
+
+        <textarea id="root_cause" name="root_cause" placeholder="Root cause" class="form-control" rows="3"></textarea>
+      </div>
+
+      <!-- Label and input for action_plan -->
+      <div class="form-group">
+        <label for="action_plan" class="control-label">
+          Action plan
+        </label>
+
+        <textarea id="action_plan" name="action_plan" placeholder="Action plan" class="form-control" rows="3"></textarea>
+      </div>
+
+      <button class="btn btn-block btn-success">
+        Create Safety Event
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>

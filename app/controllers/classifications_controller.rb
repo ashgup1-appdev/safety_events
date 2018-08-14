@@ -6,6 +6,7 @@ class ClassificationsController < ApplicationController
   end
 
   def show
+    @safety_event = SafetyEvent.new
     @classification = Classification.find(params[:id])
 
     render("classifications/show.html.erb")
