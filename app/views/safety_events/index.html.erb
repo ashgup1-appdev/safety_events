@@ -20,8 +20,20 @@
       <% @safety_events.each do |safety_event| %>
       <tr>
         <td><%= safety_event.comment %></td>
-        <td><%= safety_event.classification.event_id %></td>
-        <td><%= safety_event.user.email %></td>
+        <td>
+          <% if safety_event.classification.present? %>
+            <a href="/classifications/<%= safety_event.classification.id %>">
+              <%= safety_event.classification.event_id %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if safety_event.user.present? %>
+            <a href="/users/<%= safety_event.user.id %>">
+              <%= safety_event.user.email %>
+            </a>
+          <% end %>
+        </td>
         <td><%= safety_event.root_cause %></td>
         <td><%= safety_event.action_plan %></td>
         <td>
