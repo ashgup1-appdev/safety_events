@@ -1,0 +1,28 @@
+<div class="page-header">
+  <h1>
+    Classifications
+    <a href="/classifications/new" class="btn btn-lg btn-success">New Classification</a>
+  </h1>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-striped table-hover">
+      <tr>
+        <th>Event</th>
+        <th>Actions</th>
+      </tr>
+
+      <% @classifications.each do |classification| %>
+      <tr>
+        <td><%= classification.event_id %></td>
+        <td>
+          <a href="/classifications/<%= classification.id %>" class="btn btn-primary">Show</a>
+          <a href="/classifications/<%= classification.id %>/edit" class="btn btn-warning">Edit</a>
+          <a href="/delete_classification/<%= classification.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>

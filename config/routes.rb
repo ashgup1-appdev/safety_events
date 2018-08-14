@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Classification resource:
+  # CREATE
+  get "/classifications/new", :controller => "classifications", :action => "new"
+  post "/create_classification", :controller => "classifications", :action => "create"
+
+  # READ
+  get "/classifications", :controller => "classifications", :action => "index"
+  get "/classifications/:id", :controller => "classifications", :action => "show"
+
+  # UPDATE
+  get "/classifications/:id/edit", :controller => "classifications", :action => "edit"
+  post "/update_classification/:id", :controller => "classifications", :action => "update"
+
+  # DELETE
+  get "/delete_classification/:id", :controller => "classifications", :action => "destroy"
+  #------------------------------
+
   # Routes for the Safety_event resource:
   # CREATE
   get "/safety_events/new", :controller => "safety_events", :action => "new"
