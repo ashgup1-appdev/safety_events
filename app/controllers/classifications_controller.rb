@@ -1,6 +1,7 @@
 class ClassificationsController < ApplicationController
   def index
-    @classifications = Classification.page(params[:page]).per(10)
+    @q = Classification.ransack(params[:q])
+    @classifications = @q.result(:distinct => true).includes(:safety_events).page(params[:page]).per(10)
 
     render("classifications/index.html.erb")
   end
