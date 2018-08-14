@@ -20,7 +20,7 @@
       <% @safety_events.each do |safety_event| %>
       <tr>
         <td><%= safety_event.comment %></td>
-        <td><%= safety_event.classification_id %></td>
+        <td><%= safety_event.classification.event_id %></td>
         <td><%= safety_event.user_id %></td>
         <td><%= safety_event.root_cause %></td>
         <td><%= safety_event.action_plan %></td>
