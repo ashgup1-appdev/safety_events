@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root :to => "safety_events#index"
   # Routes for the Classification resource:
   # CREATE
   get "/classifications/new", :controller => "classifications", :action => "new"
